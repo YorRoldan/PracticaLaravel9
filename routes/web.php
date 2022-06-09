@@ -16,3 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/', function () {
+    return view('prueba/prueba_2');
+});
+
+
+Route::get('empleados', function () {
+    $mensaje = '<h1>Vista principal empleados</h1>';
+    return $mensaje;
+});
