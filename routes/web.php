@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EmpleadosController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -26,3 +28,8 @@ Route::get('empleados', function () {
     $mensaje = '<h1>Vista principal empleados</h1>';
     return $mensaje;
 });
+
+Route::get('empleados', [EmpleadosController::class, 'index'])->name('empleadoIndex');
+Route::get('empleados/crear', [EmpleadosController::class, 'crear'])->name('empleadoCrear');
+Route::get('empleados/mostrar', [EmpleadosController::class, 'mostrar'])->name('empleadoMostrar');
+Route::get('empleados/editar', [EmpleadosController::class, 'editar'])->name('empleadoEditar');
