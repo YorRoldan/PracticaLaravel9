@@ -28,6 +28,7 @@ class EmpleadosController extends Controller
         ];
         return view('Empleados.index', compact('titulo', 'empleados'));
     }
+    
     public function crear(){
         $titulo = "Vista crear de empleados";
         return view('Empleados.crear');
