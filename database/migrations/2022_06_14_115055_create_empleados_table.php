@@ -13,8 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('empleados', function (Blueprint $table) {
+        Schema::create('empleados', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('nombre');
+            $table->string('direccion', 200);
+            $table->string('email')->unique();
+            $table->integer('edad');
             $table->integer('idCargo')->unsigned();
+            $table->foreign('idCargo')->references('id')->on('cargos');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('empleados', function (Blueprint $table) {
-            $table->dropColumn('idCargo');
-        });
+        Schema::dropIfExists('empleados');
     }
 };
