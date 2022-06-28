@@ -35,3 +35,4 @@ Route::get('empleados/mostrar', [EmpleadosController::class, 'mostrar'])->name('
 Route::get('empleados/editar', [EmpleadosController::class, 'editar'])->name('empleadoEditar');
 
 Route::post('empleados', [EmpleadosController::class, 'guardar'])->name('empleadoGuardar');
+

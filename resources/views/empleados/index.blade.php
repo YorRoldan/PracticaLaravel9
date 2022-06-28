@@ -3,9 +3,10 @@
 @section('contenido')
     <h1>{{$titulo}}</h1>
 
+   
     <br>
-    <!-- Botón Modal CREAR EMPLEADO-->
-    <div class="row">
+   <!-- Botón Modal CREAR EMPLEADO-->
+   <div class="row">
         <div class="col-sm-8 col-sm-offset-2">
             <a class="btn btn-primary" data-toggle="modal" data-target="#crearEmpleadoModal"><i class="fas fa-user-plus"></i> Nuevo Registro</a>
         </div>
@@ -73,7 +74,12 @@
         </div>
     </div>
     <!-- FIN Modal CREAR EMPLEADO-->
-
+    <br>
+        @if (session('mensaje'))
+            <div class="alert alert-success">
+                {{ session('mensaje') }}
+            </div>
+        @endif
     <br>
     <table class="table">
         <thead>
@@ -110,4 +116,14 @@
     <div class="d-flex justify-content-center">
         {{ $empleados->links() }}
     </div>
+    
+    @section('scripts')
+    @if($errors->any())
+    <script>
+        $(document).ready(function(){
+            $('#crearEmpleadoModal').modal('show')
+        })
+    </script>
+    @endif
+    
 @endsection()
