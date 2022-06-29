@@ -34,5 +34,8 @@ Route::get('empleados/crear', [EmpleadosController::class, 'crear'])->name('empl
 Route::get('empleados/mostrar', [EmpleadosController::class, 'mostrar'])->name('empleadoMostrar');
 Route::get('empleados/editar', [EmpleadosController::class, 'editar'])->name('empleadoEditar');
 
+//Esta Ruta con el verbo PUT es para modificar, lo que esta en parentesis es un modelo
+Route::put('empleados/{empleado}', [EmpleadosController::class, 'actualizar'])->name('empleadoActualizar');
+
 Route::post('empleados', [EmpleadosController::class, 'guardar'])->name('empleadoGuardar');
 
