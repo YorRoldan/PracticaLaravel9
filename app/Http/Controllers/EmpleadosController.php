@@ -86,4 +86,10 @@ class EmpleadosController extends Controller
         return redirect('empleados')->with('mensaje', 'Empleado guardado');
     }
 
+    public function eliminar(Empleado $empleado)
+    {
+        $empleado->delete();
+        return redirect('empleados')->with('mensaje', 'Empleado eliminado');
+    }
+
 }
