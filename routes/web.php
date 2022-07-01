@@ -40,3 +40,12 @@ Route::put('empleados/{empleado}', [EmpleadosController::class, 'actualizar'])->
 Route::post('empleados', [EmpleadosController::class, 'guardar'])->name('empleadoGuardar');
 
 Route::delete('empleados/{empleado}', [EmpleadosController::class, 'eliminar'])->name('empleadoEliminar');
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
